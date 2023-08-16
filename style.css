@@ -67,7 +67,7 @@ button:hover{
 
 /* output section ***************************************************/
 .btnSearch{
-    display: flex;
+    display: none;
     justify-content: space-between;
 }
 .btnSearch button{
@@ -87,4 +87,41 @@ table th{
 }
 th,td{
     padding: 5px;
+}
+h2{
+animation: x 3s infinite;
+}
+span{
+animation: cy 5s infinite;
+}
+
+@keyframes x {
+    0%{
+    
+    }
+    10%{letter-spacing: 10px;}
+    20%{letter-spacing: 15px;}
+    30%{letter-spacing: 20px;}
+    40%{letter-spacing: 25px;}
+    50%{letter-spacing: 30px;}
+    60%{letter-spacing: 35px;}
+    70%{letter-spacing: 40px;}
+    80%{letter-spacing: 45px;}
+    90%{letter-spacing: 50px;}
+    100%{letter-spacing: 55px;}
+}
+@keyframes cy {
+    0%{
+    
+    }
+    10%{color: red;}
+    20%{color: rgb(85, 66, 66);}
+    30%{color: rgb(57, 9, 9);}
+    40%{color: rgb(94, 255, 0);}
+    50%{color: rgb(166, 255, 0);}
+    60%{color: rgb(183, 255, 0);}
+    70%{color: rgb(246, 255, 0);}
+    80%{color: rgb(255, 115, 0);}
+    90%{color: rgb(255, 208, 0);}
+    100%{color: rgb(224, 116, 116);}
 }

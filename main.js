@@ -41,7 +41,8 @@ create.onclick = function () {
         count:count.value,
         category:category.value,
     }
-    if (mon === 'create') {
+    if (title.value != '' && price.value != '' && category.value !='' && newPro.count < 201) {
+            if (mon === 'create') {
         if (newPro.count > 1) {
         for (let i = 0; i < newPro.count;i++){
             datePro.push(newPro);
@@ -51,13 +52,16 @@ create.onclick = function () {
     }
     } else {
         datePro[tmp] = newPro;
+        }
+        
+    clearData()
     }
+
 
     
     localStorage.setItem('product', JSON.stringify(datePro))
     console.log(datePro)
 
-    clearData()
     showData()
 }
 
@@ -78,7 +82,7 @@ function showData() {
 
         table += `
     <tr>
-        <td>${i}</td>
+        <td>${i+1}</td>
         <td>${datePro[i].title}</td>
         <td>${datePro[i].price}</td>
         <td>${datePro[i].taxes}</td>
@@ -133,3 +137,66 @@ function updateDate(i) {
     tmp = i;
     mon = 'Update';
 }
+
+
+let searchMode = 'title';
+
+function getSearchMode(id) {
+    let search = document.querySelector('.search')
+    if (id == 'searchTitle') {
+        searchMode = 'title';
+        search.placeholder ='Search By Title'
+    } else {
+        searchMode = 'category';
+        search.placeholder ='Search By Category'
+    }
+    search.focus()
+}
+
+function searchData(value) {
+    let table = '';
+    if (searchMode = 'title') {
+        for (let i = 0; i < datePro.length; i++){
+            if (datePro[i].title.includes(value)) {
+                table += `
+    <tr>
+        <td>${i}</td>
+        <td>${datePro[i].title}</td>
+        <td>${datePro[i].price}</td>
+        <td>${datePro[i].taxes}</td>
+        <td>${datePro[i].ads}</td>
+        <td>${datePro[i].discount}</td>
+        <td>${datePro[i].total}</td>
+        <td>${datePro[i].category}</td>
+        <td><button onclick="updateDate(${i})" class="update">update</button></td>
+        <td><button onclick="deleteData(${i})" class="delete">delete</button></td>
+    </tr>
+    `
+                
+            }
+        }
+    }
+        for (let i = 0; i < datePro.length; i++){
+            if (datePro[i].category.includes(value)) {
+                table += `
+    <tr>
+        <td>${i}</td>
+        <td>${datePro[i].title}</td>
+        <td>${datePro[i].price}</td>
+        <td>${datePro[i].taxes}</td>
+        <td>${datePro[i].ads}</td>
+        <td>${datePro[i].discount}</td>
+        <td>${datePro[i].total}</td>
+        <td>${datePro[i].category}</td>
+        <td><button onclick="updateDate(${i})" class="update">update</button></td>
+        <td><button onclick="deleteData(${i})" class="delete">delete</button></td>
+    </tr>
+    `
+                
+            }
+        }
+    
+    document.getElementById('tbody').innerHTML = table;
+}
+
+

@@ -11,33 +11,33 @@
     <div class="container">
         <!-- head section ---------------------------------------------------->
         <div class="head">
-            <h2>Me5a</h2>
+            <h2><SPan>M</SPan>EKHAI<span>L</span></h2>
             <p>PRODUCT MANAGEMENT SYSTEM</p>
         </div>
         <!-- inputs section ---------------------------------------------------->
         <div class="inputs">
-            <input type="text" placeholder="Title" id="title">
+            <input type="text" placeholder="Title **Mandatory**" id="title">
 
             <!-- price section ---------------------------------------------------->
 
             <div class="price">
-                <input onkeyup="getTotal()" type="number" id="price" placeholder="Price">
+                <input onkeyup="getTotal()" type="number" id="price" placeholder="Price **Mandatory**">
                 <input onkeyup="getTotal()" type="number" id="taxes" placeholder="Taxes">
                 <input onkeyup="getTotal()" type="number" id="ads" placeholder="Ads">
                 <input onkeyup="getTotal()" type="number" id="discount" placeholder="Discount">
                 <small id="total"></small>
             </div>
-            <input type="number" id="count" placeholder="count">
-            <input type="text" placeholder="Category" id="category">
+            <input type="number" id="count" placeholder="Count **200MAX**">
+            <input type="text" placeholder="Category **Mandatory**" id="category">
             <button id="create">Create</button>
         </div>
         <!-- output section ---------------------------------------------------->
         <div class="output">
             <div class="searchBlock">
-                <input type="text" class="search" placeholder="Search">
+                <input type="text" class="search" placeholder="Search" onkeyup="searchData(this.value)">
                 <div class="btnSearch">
-                    <button id="searchTitle">Search By Title</button> 
-                    <button id="searchCategory">Search By Category</button> 
+                    <button id="searchTitle" onclick="getSearchMode(this.id)">Search By Title</button> 
+                    <button id="searchCategory" onclick="getSearchMode(this.id)">Search By Category</button> 
                 </div>
             </div>
             <div id="deleteAll">
@@ -51,6 +51,7 @@
                     <th>taxes</th>
                     <th>ads</th>
                     <th>discount</th>
+                    <th>total</th>
                     <th>category</th>
                     <th>update</th>
                     <th>delete</th>
